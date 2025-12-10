@@ -4,23 +4,29 @@
 :root {
     --dark-blue: #19224d; /* Warna biru tua dari gambar */
     --text-purple: #7d3c9e; /* Warna teks "TRENDING" (perkiraan) */
-    --body-bg: #f4f7f6; /* Warna background putih gading */
     --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
 }
 
 body {
-    background-color: var(--body-bg);
-    font-family: "Audiowide", sans-serif:
+    background-color: var(--dark-blue);
+    
 }
 
+/* --- GLASSMORPHISM NAVBAR --- */
 .navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: #0047AB;
-        padding: 15px 40px;
-
-    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    /* Ganti background solid jadi transparan + blur */
+    background: rgba(25, 34, 77, 0.7); /* Biru tua transparan (70%) */
+    backdrop-filter: blur(10px);        /* Efek Blur di belakang kaca */
+    -webkit-backdrop-filter: blur(10px); /* Support Safari */
+    
+    padding: 15px 40px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garis tipis halus */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
     
     .nav-links {
         display: flex;
@@ -109,8 +115,9 @@ body {
 /* ============================================= */
 /* Wrapper Konten Utama (Lengkungan) */
 /* ============================================= */
+
 .main-content-wrapper {
-    background-color: white;
+    background-color: var(--dark-blue);
     border-top-left-radius: 60px;
     border-top-right-radius: 60px;
     padding-top: 4rem;
@@ -125,6 +132,7 @@ body {
 /* ============================================= */
 .services-section {
     padding-bottom: 4rem;
+    background-color: var(--dark-blue);
 }
 .service-card {
     border: none;
@@ -149,38 +157,86 @@ body {
 }
 
 /* ============================================= */
-/* Trending & Review Sections (Carousel) */
+/* Trending Games Sections*/
 /* ============================================= */
+.trending-section {
+    /* Background Gelap Gradasi (Gaming Vibe) */
+    background-color: var(--dark-blue); 
+    padding: 5rem 0;
+    position: relative;
+    overflow: hidden; /* Biar glow ga bocor */
+}
+
+/* Text */
+.trending-section .section-title,
+.trending-section .section-subtitle {
+    color: white !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
 .trending-section, .room-section {
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
 
 /* --- Trending Swiper --- */
-/* --- Trending Swiper --- */
+.trending-swiper {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    perspective: 1000px;
+}
+
 .trending-swiper .swiper-slide {
-    width: 250px; /* Lebar kartu */
-    height: 350px; /* TINGGI HARUS DISET AGAR SAMA RATA */
-    transition: transform 0.3s ease;
+    width: 280px;  /* Sedikit lebih lebar */
+    height: 400px; /* Lebih tinggi biar poster full */
+    border-radius: 20px;
+    background: #000;
+    /* Transisi halus saat status berubah jadi active */
+    transition: all 0.5s ease; 
 }
 
 .trending-swiper .swiper-slide img {
     width: 100%;
-    height: 100%; /* Mengikuti tinggi slide (350px) */
-    object-fit: cover; /* KUNCINYA: Memotong gambar agar pas tanpa gepeng */
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    /* Awalnya agak gelap (dimmed) */
+    filter: brightness(0.5) grayscale(30%); 
+    transition: all 0.5s ease;
 }
-/* Efek 3D Coverflow (seperti di gambar) */
-.trending-swiper .swiper-slide-shadow-left,
-.trending-swiper .swiper-slide-shadow-right {
-    background-image: none;
+
+.trending-swiper .swiper-slide-active {
+    transform: scale(1.1); /* Zoom dikit */
+    z-index: 10;
+}
+
+.trending-swiper .swiper-slide-active img {
+    filter: brightness(1) grayscale(0%); /* Jadi terang */
+    /* Efek Glowing Border Neon */
+    box-shadow: 
+        0 0 20px rgba(125, 60, 158, 0.6), /* Glow Ungu Dalam */
+        0 0 40px rgba(0, 210, 255, 0.4);  /* Glow Biru Luar */
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Efek Refleksi di Bawah Kartu*/
+.trending-swiper .swiper-slide-active::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
 }
 
 /* Styling Tombol Panah Swiper */
 .trending-swiper .swiper-button-next,
 .trending-swiper .swiper-button-prev {
-    color: #E60000; /* Menggunakan warna merah sesuai tema tombol login */
+    color: #E60000; /**/
     font-weight: bold;
     background-color: rgba(255, 255, 255, 0.8); /* Latar putih transparan biar kelihatan */
     width: 50px;
@@ -207,8 +263,9 @@ body {
 /* ============================================= */
 /* Footer */
 /* ============================================= */
+
 .footer-section {
-    background-color: var(--dark-blue);
+    background: radial-gradient(circle at center, #2b1055, #000000);
     color: white;
     padding: 6rem 0 2rem 0;
     border-top-left-radius: 60px;
@@ -246,21 +303,16 @@ body {
     opacity: 0.5;
 }
 
-    .login-btn {
-        background-color: #E60000;
-        border: none;
-        color: white;
-        padding: 8px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-    }
-    /* Search Section */
+/* ============================================= */
+/* Search Section */
+/* ============================================= */
     
     .search-section {
         display: flex;
         justify-content: center;
         margin: 30px 0;
         gap: 10px;
+        background-color: var(--dark-blue);
     }
     
     .search-section input {
@@ -283,6 +335,7 @@ body {
     /* Filter Buttons */
     
     .filter-buttons {
+        background-color: var(--dark-blue);
         display: flex;
         justify-content: center;
         gap: 15px;
@@ -311,6 +364,7 @@ body {
         flex-wrap: wrap;
         gap: 25px;
         padding: 20px;
+        background-color: var(--dark-blue);
     }
     
     .game-card {
@@ -331,7 +385,7 @@ body {
     .game-card h3 {
         margin-top: 10px;
         font-size: 16px;
-        color: #000000;
+        color: white;
     }
     
     .game-card:hover {
@@ -339,9 +393,226 @@ body {
         box-shadow: 0 5px 15px rgba(243, 54, 54, 0.2);
     }
 
+/* ============================================= */
+/* Room section */
+/* ============================================= */
+
+/* --- ROOM SLIDER STYLE --- */
+.room-swiper {
+    width: 100%;
+    padding: 20px 0 50px 0; /* Padding bawah untuk titik pagination */
+}
+
+.section-title, .section-subtitle {
+    color: white !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.room-card {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 400px; /* Tinggi ruangan fix */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px); /* Efek naik dikit pas di-hover */
+}
+
+.room-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Gambar full tanpa gepeng */
+    filter: brightness(0.8); /* Agak gelap biar tulisan jelas */
+}
+
+/* Tulisan Info di atas gambar */
+.room-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    color: white;
+    text-align: left;
+}
+
+.room-info h3 {
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.room-info p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.room-info .price {
+    background-color: #E60000;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Navigasi Tombol Merah */
+.room-swiper .swiper-button-next,
+.room-swiper .swiper-button-prev {
+    color: #E60000;
+    background: rgba(255,255,255,0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.room-swiper .swiper-button-next:after, 
+.room-swiper .swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+}
 
 /* ============================================= */
-/* Animasi (Bonus) */
+/* RESPONSIVE (Mobile & Tablet) */
+/* ============================================= */
+
+@media (max-width: 768px) {
+    
+    /* 1. Kecilkan Judul Besar di HP */
+    .hero-title {
+        font-size: 2.2rem; /* Dari 3.5rem jadi lebih kecil */
+        line-height: 1.2;
+        text-align: center;
+    }
+
+    .hero-subtitle, 
+    .hero-desc, 
+    .hero-address {
+        text-align: center; /* Rata tengah biar rapi di HP */
+    }
+
+    /* 2. Kurangi Padding/Jarak yang terlalu lebar */
+    .hero-section {
+        padding: 8rem 0 4rem 0; /* Atas dikasih jarak buat Navbar, bawah dikurangi */
+    }
+
+    .navbar {
+        padding: 10px 20px; /* Navbar lebih tipis */
+        background: rgba(25, 34, 77, 0.9); /* Lebih gelap dikit biar tulisan jelas */
+    }
+
+    /* 3. Atur Wrapper Lengkungan */
+    .main-content-wrapper {
+        border-top-left-radius: 30px; /* Lengkungan dikurangi */
+        border-top-right-radius: 30px;
+        margin-top: -30px;
+        padding-top: 2rem;
+    }
+
+    /* 4. Swiper (Slider) agar tidak kepotong */
+    .trending-swiper .swiper-slide {
+        width: 200px; /* Kartu diperkecil */
+        height: 300px;
+    }
+    
+    /* 5. Footer Rata Tengah */
+    .footer-section {
+        text-align: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+        margin-top: 15px;
+        display: flex;
+        gap: 15px;
+    }
+
+    /* 6. Perbaikan Search Bar di Game List */
+    .search-section .input-group {
+        width: 100% !important; /* Full width di HP */
+    }
+    
+    .search-section button {
+        width: auto;
+    }
+
+    /* Gamelist responsif */
+    /* 1. SEARCH SECTION (Biar tidak kaku) */
+    .search-section {
+        flex-direction: column; /* Input di atas, tombol di bawah */
+        padding: 0 20px;
+        margin-top: 20px;
+    }
+
+    .search-section .input-group {
+        width: 100% !important; /* Paksa lebar penuh di HP */
+    }
+
+    .search-section input {
+        width: 100%; /* Input memenuhi layar */
+        margin-top: 0; /* Reset margin aneh kalau ada */
+        font-size: 1rem;
+    }
+
+    .search-section button {
+        width: 100%; /* Tombol search juga full width biar gampang dipencet */
+        margin-top: 10px;
+        border-radius: 30px !important; /* Biar bulat rapi sendiri */
+    }
+
+    /* 2. FILTER BUTTONS (Agar tidak nabrak) */
+    .filter-buttons {
+        flex-wrap: wrap; /* Tombol turun ke bawah jika tidak muat */
+        gap: 10px;
+        padding: 0 15px;
+    }
+
+    .filter-buttons button {
+        flex: 1 1 auto; /* Tombol menyesuaikan lebar (auto-fill) */
+        font-size: 0.85rem; /* Font agak kecil biar muat */
+        padding: 8px 15px;
+    }
+
+    /* 3. GAME LIST (Grid 2 Kolom di HP) */
+    .game-list {
+        gap: 15px; /* Kurangi jarak antar kartu */
+        padding: 10px;
+        justify-content: center; /* Pastikan di tengah */
+    }
+
+    .game-card {
+        /* Trik agar muat 2 kartu di layar HP (sekitar 45% lebar per kartu) */
+        width: calc(50% - 20px); 
+        margin-bottom: 10px;
+    }
+
+    .game-card img {
+        height: 200px; /* Kurangi tinggi gambar biar proporsional */
+    }
+    
+    .game-card h3 {
+        font-size: 0.9rem; /* Judul game lebih kecil */
+        padding: 0 5px;
+    }
+}
+
+/* HP dengan layar kecil */
+@media (max-width: 380px) {
+    .game-card {
+        width: 100%; /* Jadi 1 kartu per baris biar gambarnya jelas */
+    }
+}
+
+/* ============================================= */
+/* Animasi*/
 /* ============================================= */
 @keyframes float {
     0% { transform: translateY(0px); }
