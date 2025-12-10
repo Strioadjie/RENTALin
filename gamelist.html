@@ -129,75 +129,8 @@
         </div>
     </footer>
 
-<script>
-// Penambahan Kode JavaScript untuk Filter dan Search
-const btnShowAll = document.getElementById("btn-showall"); 
-const btnSingleplayer = document.getElementById("btn-singleplayer");
-const btnMultiplayer = document.getElementById("btn-multiplayer");
-
-// Pilih Search Bar
-const searchInput = document.getElementById("search-input");
-
-// Pilih Semua Kartu Game
-const gameCards = document.querySelectorAll(".game-card");
-
-
-// FUNGSI FILTER KATEGORI (Kode Anda)
-btnShowAll.addEventListener("click", function() {
-  filterGames("all");
-});
-
-btnSingleplayer.addEventListener("click", function() {
-  filterGames("singleplayer");
-});
-
-btnMultiplayer.addEventListener("click", function() {
-  filterGames("multiplayer");
-});
-
-function filterGames(category) {
-  gameCards.forEach(function(card) {
-    const cardCategory = card.dataset.category;
-
-    if (category === "all" || cardCategory.includes(category)) {
-      card.style.display = ""; // Tampilkan kartu
-    } else {
-      card.style.display = "none"; // Sembunyikan kartu
-    }
-  });
-}
-
-
-// FUNGSI SEARCH DENGAN ANIMASI
-searchInput.addEventListener("input", function() {
-    const searchQuery = searchInput.value.toLowerCase();
-    
-    // Counter untuk mengatur jeda animasi
-    let delayCounter = 0;
-
-    gameCards.forEach(function(card) {
-        const gameTitle = card.querySelector("h3").textContent.toLowerCase();
-
-        // Cek apakah judul cocok
-        if (gameTitle.includes(searchQuery)) {
-            
-            // Tampilkan kartu
-            card.style.display = ""; 
-
-        } else {
-            // Sembunyikan kartu jika tidak cocok
-            card.style.display = "none";
-            card.classList.remove("show-animate");
-            card.style.animationDelay = "0s"; // Reset delay
-        }
-    });
-});
-</script>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init({
@@ -206,8 +139,9 @@ searchInput.addEventListener("input", function() {
         offset: 100     
       });
     </script>
-
     <script src="js/main.js"></script>
+    <script src="js/gamelist.js"></script>
+    
 
 </body>
 </html>
