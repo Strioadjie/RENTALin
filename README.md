@@ -27,7 +27,7 @@ Proyek ini merupakan website statis, sehingga tidak memerlukan proses *build*, k
 
 1. Lakukan *clone* repositori ini ke komputer Anda menggunakan Git:
    ```bash
-   git clone <URL_REPOSITORI_ANDA>
+   git clone https://github.com/Strioadjie/RENTALin.git
    ```
 2. Masuk ke dalam direktori proyek:
    ```bash
