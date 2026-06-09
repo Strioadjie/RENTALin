@@ -1,47 +1,55 @@
 # RENTALin
 
-RENTALin is a modern and responsive landing page for a premium PlayStation rental and gaming space in Indonesia. It showcases the available facilities, trending games, and various room types (Regular, VIP, and VVIP) offered to customers.
+RENTALin adalah halaman *landing page* modern dan responsif untuk layanan penyewaan PlayStation dan ruang bermain premium. Website ini dirancang untuk menampilkan fasilitas, daftar game yang sedang tren, serta berbagai tipe ruangan (Regular, VIP, dan VVIP) kepada pelanggan.
 
-## Features
+## Tentang Proyek
 
-- **Responsive Design:** Optimized layout for all devices, including modern smartphones, tablets, and desktop computers.
-- **Modern UI/UX:** Clean aesthetics utilizing glassmorphism effects, CSS gradients, and smooth scroll animations.
-- **Interactive Sliders:** Includes dynamic carousels to showcase trending games and room types.
-- **Game List Directory:** A dedicated page to view the catalog of available games with search and category filtering functionality (Singleplayer/Multiplayer).
-- **Performance Optimized:** Implements lazy loading for images and DNS prefetching for external resources to ensure fast load times.
+Proyek ini dibangun untuk memberikan pengalaman antarmuka pengguna (UI/UX) yang modern dan interaktif. Dengan menggunakan desain *glassmorphism* dan animasi gulir (scroll), RENTALin bertujuan untuk merepresentasikan kualitas premium dari layanan penyewaan PlayStation itu sendiri. Website ini sepenuhnya statis sehingga sangat cepat dan mudah untuk dikembangkan atau diintegrasikan lebih lanjut ke sistem *backend* di masa mendatang.
 
-## Technologies Used
+## Fitur Utama
 
-- **HTML5:** Semantic markup structure.
-- **CSS3:** Custom styling with CSS Variables, Flexbox, and Media Queries for responsiveness.
-- **JavaScript (Vanilla):** Logic for search filtering, DOM manipulation, and component initialization.
-- **Bootstrap 5:** Grid system and utility classes for rapid UI development.
-- **Swiper.js:** Touch-enabled slider for the trending games and room galleries.
-- **AOS (Animate On Scroll):** Scroll-driven entrance animations.
-- **Bootstrap Icons:** Vector icons used throughout the interface.
+- **Desain Responsif:** Tata letak yang dioptimalkan untuk berbagai perangkat, termasuk *smartphone* modern, tablet, dan desktop.
+- **Antarmuka Modern:** Desain antarmuka yang bersih dengan efek *glassmorphism*, gradasi CSS, dan animasi transisi yang mulus.
+- **Katalog Game Interaktif:** Halaman khusus untuk melihat daftar game lengkap dengan fitur pencarian dan penyaringan kategori (Singleplayer / Multiplayer).
+- **Optimasi Performa:** Menggunakan teknik *lazy loading* pada gambar dan *DNS prefetching* untuk memastikan waktu pemuatan halaman yang sangat cepat.
 
-## Project Structure
+## Teknologi yang Digunakan
+
+- **HTML5 & CSS3:** Struktur semantik dan penataan gaya antarmuka khusus (Vanilla CSS).
+- **JavaScript (Vanilla):** Logika DOM untuk filter pencarian, navigasi, dan inisialisasi komponen.
+- **Bootstrap 5:** *Framework* CSS untuk sistem *grid* dan utilitas responsif.
+- **Swiper.js:** *Library slider* sentuh untuk galeri ruangan dan game yang sedang tren.
+- **AOS (Animate On Scroll):** *Library* untuk memberikan efek animasi saat pengguna melakukan *scroll* halaman.
+
+## Instalasi
+
+Proyek ini merupakan website statis, sehingga tidak memerlukan proses *build*, kompilasi, atau instalasi *dependency* yang rumit. 
+
+1. Lakukan *clone* repositori ini ke komputer Anda menggunakan Git:
+   ```bash
+   git clone <URL_REPOSITORI_ANDA>
+   ```
+2. Masuk ke dalam direktori proyek:
+   ```bash
+   cd RENTALin
+   ```
+
+## Cara Penggunaan
+
+1. **Penggunaan Standar:** Buka file `index.html` langsung menggunakan *web browser* pilihan Anda (seperti Google Chrome, Mozilla Firefox, atau Microsoft Edge).
+2. **Penggunaan untuk Developer:** Jika Anda menggunakan teks editor seperti Visual Studio Code, sangat disarankan untuk membuka proyek ini menggunakan ekstensi **Live Server**. Ini memungkinkan halaman dimuat ulang secara otomatis setiap kali Anda menyimpan perubahan pada kode.
+3. **Navigasi Halaman:** Anda dapat mengklik menu "Game List" pada navigasi bar atas, atau langsung membuka file `gamelist.html` untuk melihat fitur filter dan pencarian game.
+
+## Struktur Proyek
 
 ```text
 RENTALin/
 ├── css/
-│   └── style.css       # Custom stylesheets
+│   └── style.css       # Pengaturan gaya (CSS) khusus
 ├── js/
-│   ├── main.js         # Slider configurations and global scripts
-│   └── gamelist.js     # Search, filtering, and modal logic for the Game List page
-├── photo/              # Directory containing all image assets
-├── index.html          # Main landing page
-└── gamelist.html       # Game catalog page
+│   ├── main.js         # Konfigurasi slider dan script global
+│   └── gamelist.js     # Logika pencarian, filter, dan modal untuk halaman Game List
+├── photo/              # Direktori penyimpanan seluruh aset gambar
+├── index.html          # Halaman utama (Landing Page)
+└── gamelist.html       # Halaman katalog game
 ```
-
-## How to Run Locally
-
-1. Clone this repository to your local machine.
-2. Open the project folder.
-3. Open `index.html` in your preferred web browser. 
-   - Alternatively, you can use an extension like "Live Server" in VS Code for a better development experience.
-4. No build process, node modules, or server setup is required.
-
-## Author
-
-Developed for RENTALin - Best Rental Playstation in Indonesia.
