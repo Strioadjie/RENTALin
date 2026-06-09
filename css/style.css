@@ -505,8 +505,19 @@ body {
     }
 
     .navbar {
-        padding: 10px 20px; /* Navbar lebih tipis */
+        padding: 10px 15px; /* Navbar lebih tipis untuk HP */
         background: rgba(25, 34, 77, 0.9); /* Lebih gelap dikit biar tulisan jelas */
+    }
+    
+    .navbar h4 {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+    
+    .nav-links {
+        gap: 15px; /* Jarak antar menu lebih rapat untuk layar HP */
+        padding-left: 0;
+        margin-bottom: 0;
     }
 
     /* 3. Atur Wrapper Lengkungan */
@@ -523,6 +534,10 @@ body {
         height: 300px;
     }
     
+    .room-swiper .room-card {
+        height: 300px;
+    }
+
     /* 5. Footer Rata Tengah */
     .footer-section {
         text-align: center;
@@ -535,40 +550,27 @@ body {
         gap: 15px;
     }
 
-    /* 6. Perbaikan Search Bar di Game List */
-    .search-section .input-group {
-        width: 100% !important; /* Full width di HP */
-    }
-    
-    .search-section button {
-        width: auto;
-    }
-
-    /* Gamelist responsif */
-    /* 1. SEARCH SECTION (Biar tidak kaku) */
+    /* 6. Gamelist responsif & Search Section */
     .search-section {
         flex-direction: column; /* Input di atas, tombol di bawah */
         padding: 0 20px;
         margin-top: 20px;
     }
 
-    .search-section .input-group {
-        width: 100% !important; /* Paksa lebar penuh di HP */
-    }
-
     .search-section input {
         width: 100%; /* Input memenuhi layar */
-        margin-top: 0; /* Reset margin aneh kalau ada */
+        margin-top: 0; 
         font-size: 1rem;
+        box-sizing: border-box;
     }
 
     .search-section button {
-        width: 100%; /* Tombol search juga full width biar gampang dipencet */
+        width: 100%; /* Tombol search juga full width */
         margin-top: 10px;
-        border-radius: 30px !important; /* Biar bulat rapi sendiri */
+        border-radius: 30px !important;
     }
 
-    /* 2. FILTER BUTTONS (Agar tidak nabrak) */
+    /* 7. FILTER BUTTONS (Agar tidak nabrak) */
     .filter-buttons {
         flex-wrap: wrap; /* Tombol turun ke bawah jika tidak muat */
         gap: 10px;
@@ -576,38 +578,62 @@ body {
     }
 
     .filter-buttons button {
-        flex: 1 1 auto; /* Tombol menyesuaikan lebar (auto-fill) */
-        font-size: 0.85rem; /* Font agak kecil biar muat */
+        flex: 1 1 calc(50% - 15px); /* Bagi rata 2 kolom di HP */
+        font-size: 0.85rem; 
         padding: 8px 15px;
     }
 
-    /* 3. GAME LIST (Grid 2 Kolom di HP) */
+    /* 8. GAME LIST (Grid 2 Kolom di HP) */
     .game-list {
-        gap: 15px; /* Kurangi jarak antar kartu */
+        gap: 15px; 
         padding: 10px;
-        justify-content: center; /* Pastikan di tengah */
+        justify-content: center; 
     }
 
     .game-card {
-        /* Trik agar muat 2 kartu di layar HP (sekitar 45% lebar per kartu) */
-        width: calc(50% - 20px); 
+        /* Presisi 2 kartu berjejer untuk layar HP (Poco, iPhone) */
+        width: calc(50% - 15px); 
         margin-bottom: 10px;
     }
 
     .game-card img {
-        height: 200px; /* Kurangi tinggi gambar biar proporsional */
+        height: 180px; /* Kurangi tinggi gambar sedikit lagi */
     }
     
     .game-card h3 {
-        font-size: 0.9rem; /* Judul game lebih kecil */
+        font-size: 0.9rem; 
         padding: 0 5px;
+        margin-bottom: 10px;
     }
 }
 
-/* HP dengan layar kecil */
+/* Penyesuaian khusus untuk HP dengan layar di bawah 430px (iPhone, Poco) */
+@media (max-width: 430px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .service-card {
+        margin: 0 10px;
+    }
+
+    .trending-swiper .swiper-slide {
+        width: 180px; 
+        height: 270px;
+    }
+}
+
+/* HP dengan layar ekstra kecil */
 @media (max-width: 380px) {
     .game-card {
-        width: 100%; /* Jadi 1 kartu per baris biar gambarnya jelas */
+        width: 100%; /* Jadi 1 kartu per baris biar gambarnya jelas pada HP sempit */
+    }
+    .game-card img {
+        height: 220px;
     }
 }
 
