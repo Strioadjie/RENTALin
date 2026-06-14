@@ -45,11 +45,11 @@ Proyek ini merupakan website statis, sehingga tidak memerlukan proses *build*, k
 ```text
 RENTALin/
 ├── css/
-│   └── style.css       # Pengaturan gaya (CSS) khusus
+│   └── style.css        Pengaturan gaya (CSS) khusus
 ├── js/
-│   ├── main.js         # Konfigurasi slider dan script global
-│   └── gamelist.js     # Logika pencarian, filter, dan modal untuk halaman Game List
-├── photo/              # Direktori penyimpanan seluruh aset gambar
-├── index.html          # Halaman utama (Landing Page)
-└── gamelist.html       # Halaman katalog game
+│   ├── main.js          Konfigurasi slider dan script global
+│   └── gamelist.js      Logika pencarian, filter, dan modal untuk halaman Game List
+├── photo/               Direktori penyimpanan seluruh aset gambar
+├── index.html           Halaman utama (Landing Page)
+└── gamelist.html        Halaman katalog game
 ```
